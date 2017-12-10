@@ -1,17 +1,13 @@
 <div class="panel panel-primary" ng-hide="panelEditar">
-    <div class="panel-heading">Parametrizaci&oacute;n de Seccion</div>
+    <div class="panel-heading">Secciones</div>
     <div class="panel-body">
         <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo Seccion</button>
+            <button type="button" class="btn btn-default" ng-click="nuevo()">Crear Sección</button>
         </div>
         <table class="resultados table table-striped">
             <tr>
-                <th>
-                    nombre
-                </th>
-                <th>
-                    cantidadArticulos
-                </th>
+                <th>Sección</th>
+                <th>Cantidad de Artículos</th>
                 <th>
                     <input class="form-control" ng-model="q" placeholder="Buscar" />
                 </th>
@@ -34,21 +30,21 @@
     </div>
 </div>
 <div class="panel panel-primary" ng-show="panelEditar">
-    <div class="panel-heading">Parametrizaci&oacute;n de Seccion</div>
+    <div class="panel-heading">Secciones</div>
     <div class="panel-body">
         <div class="form-group col-md-6" ng-class="errores.nombre?'error':''">
-            <label for="nombre">nombre</label>
+            <label for="nombre">Sección</label>
             <input id="nombre" class="form-control" type="text" ng-model="datosFormulario.nombre" placeholder="nombre" />
             <div ng-show="errores.nombre">{{errores.nombre}}</div>
         </div>
         <div class="form-group col-md-6" ng-class="errores.cantidadArticulos?'error':''">
-            <label for="cantidadArticulos">cantidadArticulos</label>
+            <label for="cantidadArticulos">Cantidad de Artículos</label>
             <input id="cantidadArticulos" class="form-control" type="text" ng-model="datosFormulario.cantidadArticulos" placeholder="cantidadArticulos" />
             <div ng-show="errores.cantidadArticulos">{{errores.cantidadArticulos}}</div>
         </div>
         <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-            <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-success" ng-click="guardar()">Aceptar</button>
+            <button type="button" class="btn btn-danger" ng-click="cancelar()">Cancelar</button>
         </div>
     </div>
 </div>
