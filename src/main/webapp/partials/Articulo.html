@@ -1,37 +1,23 @@
 <div class="panel panel-primary" ng-hide="panelEditar">
-    <div class="panel-heading">Parametrizaci&oacute;n de Articulo</div>
+    <div class="panel-heading">Artículos</div>
     <div class="panel-body">
         <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo Articulo</button>
+            <button type="button" class="btn btn-default" ng-click="nuevo()">Escribir Artículo</button>
         </div>
         <table class="resultados table table-striped">
             <tr>
-                <th>
-                    titulo
-                </th>
-                <th>
-                    imagen
-                </th>
-                <th>
-                    texto
-                </th>
-                <th>
-                    resumen
-                </th>
-                <th>
-                    tags
-                </th>
-                <th>
-                    seccion
-                </th>
+                <th>Título</th>
+                <th>Imagen</th>
+                <th>Resumen</th>
+                <th>Palabras Clave</th>
+                <th>Sección</th>
                 <th>
                     <input class="form-control" ng-model="q" placeholder="Buscar" />
                 </th>
             </tr>
             <tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
                 <td>{{row.titulo}}</td>
-                <td>{{row.imagen}}</td>
-                <td>{{row.texto}}</td>
+                <td><img src="{{row.imagen}}" width="200" height="200"></td>
                 <td>{{row.resumen}}</td>
                 <td>{{row.tags}}</td>
                 <td class="row">{{row.seccion.nombre}}</td>
@@ -50,44 +36,69 @@
     </div>
 </div>
 <div class="panel panel-primary" ng-show="panelEditar">
-    <div class="panel-heading">Parametrizaci&oacute;n de Articulo</div>
+    <div class="panel-heading">Artículos</div>
     <div class="panel-body">
-        <div class="form-group col-md-6" ng-class="errores.titulo?'error':''">
-            <label for="titulo">titulo</label>
-            <input id="titulo" class="form-control" type="text" ng-model="datosFormulario.titulo" placeholder="titulo" />
-            <div ng-show="errores.titulo">{{errores.titulo}}</div>
+        <div class="row">
+            <div class="form-group col-md-6" ng-class="errores.titulo?'error':''">
+                <h3>Título</h3>
+                <input id="titulo" class="form-control" type="text" ng-model="datosFormulario.titulo" placeholder="Título" />
+                <div ng-show="errores.titulo">{{errores.titulo}}</div>
+            </div>
         </div>
-        <div class="form-group col-md-6" ng-class="errores.imagen?'error':''">
-            <label for="imagen">imagen</label>
-            <input id="imagen" class="form-control" type="text" ng-model="datosFormulario.imagen" placeholder="imagen" />
-            <div ng-show="errores.imagen">{{errores.imagen}}</div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-6" ng-class="errores.imagen ? 'error' : ''">
+                <h3>Imagen</h3>
+                <input id="imagen" class="form-control" type="file" accept="image/*" ng-model="datosFormulario.imagen" />
+                <img id="displayImage">
+                <div ng-show="errores.imagen">{{errores.imagen}}</div>
+            </div>
         </div>
-        <div class="form-group col-md-6" ng-class="errores.texto?'error':''">
-            <label for="texto">texto</label>
-            <input id="texto" class="form-control" type="text" ng-model="datosFormulario.texto" placeholder="texto" />
-            <div ng-show="errores.texto">{{errores.texto}}</div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-12" ng-class="errores.texto ? 'error' : ''">
+                <h3>Texto</h3>
+                <textarea name="texto" id="texto" class="form-control" ng-model="datosFormulario.texto" ng-change="visto()" placeholder="Contenido del artículo"></textarea>
+                <div ng-show="errores.texto">{{errores.texto}}</div>
+                <script>
+                $('#texto').froalaEditor({ height: 300 });
+                </script>
+            </div>
         </div>
-        <div class="form-group col-md-6" ng-class="errores.resumen?'error':''">
-            <label for="resumen">resumen</label>
-            <input id="resumen" class="form-control" type="text" ng-model="datosFormulario.resumen" placeholder="resumen" />
-            <div ng-show="errores.resumen">{{errores.resumen}}</div>
+        <hr>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-6" ng-class="errores.resumen?'error':''">
+                <h3>Resumen</h3>
+                <textarea name="resumen" id="resumen" class="form-control" ng-model="datosFormulario.resumen" placeholder="Resumen del artículo"></textarea>
+                <div ng-show="errores.resumen">{{errores.resumen}}</div>
+            </div>
         </div>
-        <div class="form-group col-md-6" ng-class="errores.tags?'error':''">
-            <label for="tags">tags</label>
-            <input id="tags" class="form-control" type="text" ng-model="datosFormulario.tags" placeholder="tags" />
-            <div ng-show="errores.tags">{{errores.tags}}</div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-12" ng-class="errores.palabrasClave ? 'error' : ''">
+                <h3>Palabras Clave</h3>
+                <select id="tags" class="multipleSelect" multiple name="palabrasClave" ng-model="tags" ng-change="visto()">
+                    <option ng-repeat="option in listaPalabraClave" ng-value="option.nombre">{{option.nombre}}</option>
+                </select>
+                <script>
+                $('#tags').fastselect();
+                </script>
+                <div ng-show="errores.palabrasClave">{{errores.palabrasClave}}</div>
+            </div>
         </div>
+        <hr>
         <div class="row">
             <div class="form-group col-md-6" ng-class="errores.seccion?'error':''">
-                <label>seccion</label>
+                <h3>Sección</h3>
                 <select id="seccion" class="form-control" ng-model="datosFormulario.seccion" ng-options="option.nombre for option in listaSeccion track by option.id">
                 </select>
                 <div ng-show="errores.seccion">{{errores.seccion}}</div>
             </div>
         </div>
         <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-            <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-success" ng-click="guardar()">Aceptar</button>
+            <button type="button" class="btn btn-danger" ng-click="cancelar()">Cancelar</button>
         </div>
     </div>
 </div>
