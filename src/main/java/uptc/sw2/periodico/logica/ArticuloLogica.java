@@ -108,9 +108,9 @@ public class ArticuloLogica {
         dto.setTags(entidad.getTags());
 
         if (entidad.getSeccion() != null) {
-            dto.setSeccion(
-                    new SeccionDTO(
-                            entidad.getSeccion().getId()));
+            SeccionDTO sdto = new SeccionDTO(entidad.getSeccion().getId());
+            sdto.setNombre(entidad.getSeccion().getNombre());
+            dto.setSeccion(sdto);
         }
 
         return dto;
