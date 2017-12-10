@@ -27,7 +27,9 @@ public class Articulo {
     }
 
     private String titulo;
+    @Column(columnDefinition="TEXT")
     private String imagen;
+    @Column(columnDefinition="TEXT")
     private String texto;
     private String resumen;
     private String tags;
