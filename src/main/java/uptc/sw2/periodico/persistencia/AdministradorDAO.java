@@ -1,59 +1,41 @@
 package uptc.sw2.periodico.persistencia;
 
-import uptc.sw2.periodico.persistencia.entity.*;
 import java.util.List;
-import java.util.ArrayList;
-import javax.persistence.*;
+
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import uptc.sw2.periodico.persistencia.entity.Administrador;
 
 /**
-  *  @generated
-  *  @author Julian Grijalba
-  */
+ *
+ * @author Julian Grijalba
+ */
 @Stateless
 public class AdministradorDAO {
-	@PersistenceContext
+
+    @PersistenceContext
     private EntityManager em;
 
-	
-	/**
-	* @generated
-	*/
-	public List<Administrador> obtenerTodos(){
-		return em.createNamedQuery("Administrador.obtenerTodos").getResultList();
-	}
-	
-	/**
-	* @generated
-	*/
-	public Administrador obtener(Long id){
-		return em.find(Administrador.class, id);
-	}
-	
-	
-	/**
-	* @generated
-	*/
-	public Administrador guardar(Administrador entidad){
-		em.persist(entidad);
-		return entidad;
-	}
-	
-	
-	/**
-	* @generated
-	*/
-	public void borrar(Long id){
-		em.remove(em.find(Administrador.class, id));
-	}
-	
-	
-	/**
-	* @generated
-	*/
-	public void actualizar(Administrador entidad){
-		em.merge(entidad);
-	}
-	
-	
+    public List<Administrador> obtenerTodos() {
+        return em.createNamedQuery("Administrador.obtenerTodos").getResultList();
+    }
+
+    public Administrador obtener(Long id) {
+        return em.find(Administrador.class, id);
+    }
+
+    public Administrador guardar(Administrador entidad) {
+        em.persist(entidad);
+        return entidad;
+    }
+
+    public void borrar(Long id) {
+        em.remove(em.find(Administrador.class, id));
+    }
+
+    public void actualizar(Administrador entidad) {
+        em.merge(entidad);
+    }
+
 }

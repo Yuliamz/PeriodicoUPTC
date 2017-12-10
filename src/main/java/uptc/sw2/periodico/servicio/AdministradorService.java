@@ -1,17 +1,24 @@
 package uptc.sw2.periodico.servicio;
 
-import uptc.sw2.periodico.dto.*;
-import uptc.sw2.periodico.logica.*;
+
 import java.util.List;
-import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import uptc.sw2.periodico.dto.AdministradorDTO;
+import uptc.sw2.periodico.logica.AdministradorLogica;
+
 
 /**
   *  @author Julian Grijalba
-  *  @generated
+  *  
   */
 @Stateless
 @Path("/Administrador")
@@ -25,7 +32,7 @@ public class AdministradorService {
 	/**
 	* retorna una lista con los Administrador que se encuentran en la base de datos
 	* @return retorna una lista de AdministradorDTO
-	* @generated
+	* 
 	*/
 	@GET
 	public List<AdministradorDTO> obtenerTodosAdministradors(){
@@ -35,7 +42,7 @@ public class AdministradorService {
 	/**
 	* @param id identificador del elemento Administrador
 	* @return Administrador del id dado
-	* @generated
+	* 
 	*/
 	@GET
 	@Path("/{id}")
@@ -48,7 +55,7 @@ public class AdministradorService {
 	 * almacena la informacion de Administrador
 	 * @param dto Administrador a guardar
 	 * @return Administrador con los cambios realizados por el proceso de guardar
-	 * @generated
+	 * 
 	 */
 	@POST
 	public AdministradorDTO guardarAdministrador(AdministradorDTO dto){
@@ -64,7 +71,7 @@ public class AdministradorService {
 	/**
 	 * elimina el registro Administrador con el identificador dado
 	 * @param id identificador del Administrador
-	 * @generated 
+	 *  
 	 */
 	@DELETE
 	@Path("/{id}")

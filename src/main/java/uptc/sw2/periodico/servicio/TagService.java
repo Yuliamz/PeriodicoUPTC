@@ -1,17 +1,24 @@
 package uptc.sw2.periodico.servicio;
 
-import uptc.sw2.periodico.dto.*;
-import uptc.sw2.periodico.logica.*;
+
 import java.util.List;
-import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import uptc.sw2.periodico.dto.TagDTO;
+import uptc.sw2.periodico.logica.TagLogica;
+
 
 /**
   *  @author Julian Grijalba
-  *  @generated
+  *  
   */
 @Stateless
 @Path("/Tag")
@@ -25,7 +32,7 @@ public class TagService {
 	/**
 	* retorna una lista con los Tag que se encuentran en la base de datos
 	* @return retorna una lista de TagDTO
-	* @generated
+	* 
 	*/
 	@GET
 	public List<TagDTO> obtenerTodosTags(){
@@ -35,7 +42,7 @@ public class TagService {
 	/**
 	* @param id identificador del elemento Tag
 	* @return Tag del id dado
-	* @generated
+	* 
 	*/
 	@GET
 	@Path("/{id}")
@@ -48,7 +55,7 @@ public class TagService {
 	 * almacena la informacion de Tag
 	 * @param dto Tag a guardar
 	 * @return Tag con los cambios realizados por el proceso de guardar
-	 * @generated
+	 * 
 	 */
 	@POST
 	public TagDTO guardarTag(TagDTO dto){
@@ -64,7 +71,7 @@ public class TagService {
 	/**
 	 * elimina el registro Tag con el identificador dado
 	 * @param id identificador del Tag
-	 * @generated 
+	 *  
 	 */
 	@DELETE
 	@Path("/{id}")

@@ -1,11 +1,9 @@
-
-				
 <div class="panel panel-primary" ng-hide="panelEditar">
     <div class="panel-heading">Parametrizaci&oacute;n de Articulo</div>
     <div class="panel-body">
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo Articulo</button>
-		</div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo Articulo</button>
+        </div>
         <table class="resultados table table-striped">
             <tr>
                 <th>
@@ -23,108 +21,73 @@
                 <th>
                     tags
                 </th>
-                
-				<th>
-				    seccion
-				</th>
-				
-				<th>
-                    <input class="form-control" ng-model="q"  placeholder="Buscar"/>
+                <th>
+                    seccion
+                </th>
+                <th>
+                    <input class="form-control" ng-model="q" placeholder="Buscar" />
                 </th>
             </tr>
             <tr dir-paginate="row in lista|filter: q|itemsPerPage:10">
-                	<td>{{row.titulo}}</td>
-                
-                	<td>{{row.imagen}}</td>
-                
-                	<td>{{row.texto}}</td>
-                
-                	<td>{{row.resumen}}</td>
-                
-                	<td>{{row.tags}}</td>
-                
-                
-					<td class="row">{{row.seccion.nombre}}</td>     
-				         
-				<td class="row">
+                <td>{{row.titulo}}</td>
+                <td>{{row.imagen}}</td>
+                <td>{{row.texto}}</td>
+                <td>{{row.resumen}}</td>
+                <td>{{row.tags}}</td>
+                <td class="row">{{row.seccion.nombre}}</td>
+                <td class="row">
                     <button type="button" class="btn btn-default" ng-click="editar(row)">
                         <span class="glyphicon glyphicon-pencil"></span>Editar
                     </button>
-					<button type="button" class="btn btn-default" ng-click="eliminar(row)">
+                    <button type="button" class="btn btn-default" ng-click="eliminar(row)">
                         <span class="glyphicon glyphicon-remove"></span>Eliminar
                     </button>
                 </td>
             </tr>
         </table>
-		<div dir-pagination-controls></div>
-		<br/>
+        <div dir-pagination-controls></div>
+        <br/>
     </div>
 </div>
-
 <div class="panel panel-primary" ng-show="panelEditar">
     <div class="panel-heading">Parametrizaci&oacute;n de Articulo</div>
     <div class="panel-body">
-	    				
-	    <div class="form-group col-md-6" ng-class="errores.titulo?'error':''">
-	        <label for="titulo">titulo</label>
-	        <input id="titulo" 
-	               class="form-control" 
-	    		   type="text"
-	               ng-model="datosFormulario.titulo"
-	    		   placeholder="titulo"/>
-	        <div ng-show="errores.titulo">{{errores.titulo}}</div>
-	    </div>				
-	    <div class="form-group col-md-6" ng-class="errores.imagen?'error':''">
-	        <label for="imagen">imagen</label>
-	        <input id="imagen" 
-	               class="form-control" 
-	    		   type="text"
-	               ng-model="datosFormulario.imagen"
-	    		   placeholder="imagen"/>
-	        <div ng-show="errores.imagen">{{errores.imagen}}</div>
-	    </div>				
-	    <div class="form-group col-md-6" ng-class="errores.texto?'error':''">
-	        <label for="texto">texto</label>
-	        <input id="texto" 
-	               class="form-control" 
-	    		   type="text"
-	               ng-model="datosFormulario.texto"
-	    		   placeholder="texto"/>
-	        <div ng-show="errores.texto">{{errores.texto}}</div>
-	    </div>				
-	    <div class="form-group col-md-6" ng-class="errores.resumen?'error':''">
-	        <label for="resumen">resumen</label>
-	        <input id="resumen" 
-	               class="form-control" 
-	    		   type="text"
-	               ng-model="datosFormulario.resumen"
-	    		   placeholder="resumen"/>
-	        <div ng-show="errores.resumen">{{errores.resumen}}</div>
-	    </div>				
-	    <div class="form-group col-md-6" ng-class="errores.tags?'error':''">
-	        <label for="tags">tags</label>
-	        <input id="tags" 
-	               class="form-control" 
-	    		   type="text"
-	               ng-model="datosFormulario.tags"
-	    		   placeholder="tags"/>
-	        <div ng-show="errores.tags">{{errores.tags}}</div>
-	    </div> 
-		<div class="row">
-		    <div class="form-group col-md-6" ng-class="errores.seccion?'error':''">
-		        <label>seccion</label>
-				<select id="seccion" class="form-control" 
-		            ng-model="datosFormulario.seccion"
-		            ng-options="option.nombre for option in listaSeccion track by option.id">
-		    	</select>
-		        <div ng-show="errores.seccion">{{errores.seccion}}</div>
-		    </div>
-		</div>
-		
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-	        <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
-	    </div>    
+        <div class="form-group col-md-6" ng-class="errores.titulo?'error':''">
+            <label for="titulo">titulo</label>
+            <input id="titulo" class="form-control" type="text" ng-model="datosFormulario.titulo" placeholder="titulo" />
+            <div ng-show="errores.titulo">{{errores.titulo}}</div>
+        </div>
+        <div class="form-group col-md-6" ng-class="errores.imagen?'error':''">
+            <label for="imagen">imagen</label>
+            <input id="imagen" class="form-control" type="text" ng-model="datosFormulario.imagen" placeholder="imagen" />
+            <div ng-show="errores.imagen">{{errores.imagen}}</div>
+        </div>
+        <div class="form-group col-md-6" ng-class="errores.texto?'error':''">
+            <label for="texto">texto</label>
+            <input id="texto" class="form-control" type="text" ng-model="datosFormulario.texto" placeholder="texto" />
+            <div ng-show="errores.texto">{{errores.texto}}</div>
+        </div>
+        <div class="form-group col-md-6" ng-class="errores.resumen?'error':''">
+            <label for="resumen">resumen</label>
+            <input id="resumen" class="form-control" type="text" ng-model="datosFormulario.resumen" placeholder="resumen" />
+            <div ng-show="errores.resumen">{{errores.resumen}}</div>
+        </div>
+        <div class="form-group col-md-6" ng-class="errores.tags?'error':''">
+            <label for="tags">tags</label>
+            <input id="tags" class="form-control" type="text" ng-model="datosFormulario.tags" placeholder="tags" />
+            <div ng-show="errores.tags">{{errores.tags}}</div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6" ng-class="errores.seccion?'error':''">
+                <label>seccion</label>
+                <select id="seccion" class="form-control" ng-model="datosFormulario.seccion" ng-options="option.nombre for option in listaSeccion track by option.id">
+                </select>
+                <div ng-show="errores.seccion">{{errores.seccion}}</div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
+            <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+        </div>
     </div>
 </div>
-
