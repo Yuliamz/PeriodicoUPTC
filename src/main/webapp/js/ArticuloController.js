@@ -4,7 +4,6 @@ module.controller('ArticuloCtrl', ['$scope', '$filter', '$http', function($scope
     //listar
     $scope.lista = [];
     $scope.listaPalabraClave = [];
-    $scope.tags = [];
     $scope.datosFormulario = {};
     $scope.panelEditar = false;
 
@@ -72,8 +71,7 @@ module.controller('ArticuloCtrl', ['$scope', '$filter', '$http', function($scope
         $scope.datosFormulario = {};
         $('#texto').froalaEditor('html.set', "<p> Contenido del Artículo </p>");
         $('#displayImage').removeAttr("src");
-        $('#tags').value = "";
-        $('#tags').fastselect();
+        $('.fstChoiceItem').remove();
     };
 
     $scope.guardar = function() {
@@ -96,6 +94,7 @@ module.controller('ArticuloCtrl', ['$scope', '$filter', '$http', function($scope
     $scope.cancelar = function() {
         $scope.panelEditar = false;
         $scope.datosFormulario = {};
+        $scope.tags = [];
     };
 
     //editar
@@ -105,7 +104,14 @@ module.controller('ArticuloCtrl', ['$scope', '$filter', '$http', function($scope
         $('#texto').froalaEditor('html.set', $scope.datosFormulario.texto);
         $('#displayImage').attr('src', $scope.datosFormulario.imagen);
         $('#imagen').value = "";
-        $('#tags').fastselect().data($scope.datosFormulario.palabrasClave);
+        $('.fstChoiceItem').remove();
+        var tagString = $scope.datosFormulario.tags.replace(/\s/g,'');
+        $scope.tags = tagString.split(",");
+        for (var i = 0; i < $scope.tags.length; i++) {
+            $(".fstControls").prepend('<div data-text="'+$scope.tags[i]+'" data-value="'+$scope.tags[i]+'" class="fstChoiceItem">'+$scope.tags[i]+'<button class="fstChoiceRemove" type="button">×</button></div>');
+        }
+            console.log($scope.tags);
+       
     };
     //eliminar
     $scope.eliminar = function(data) {
