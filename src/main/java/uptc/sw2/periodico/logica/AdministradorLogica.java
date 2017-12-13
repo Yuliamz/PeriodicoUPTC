@@ -65,9 +65,6 @@ public class AdministradorLogica {
      * actualiza la informacion de Administrador
      *
      * @param dto Administrador a guardar
-     * @return Administrador con los cambios realizados por el proceso de
-     * guardar
-     *
      */
     public void actualizar(AdministradorDTO dto) {
         persistencia.actualizar(convertirDTO(dto));

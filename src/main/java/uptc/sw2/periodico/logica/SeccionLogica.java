@@ -63,13 +63,17 @@ public class SeccionLogica {
      * actualiza la informacion de Seccion
      *
      * @param dto Seccion a guardar
-     * @return Seccion con los cambios realizados por el proceso de guardar
      *
      */
     public void actualizar(SeccionDTO dto) {
         persistencia.actualizar(convertirDTO(dto));
     }
 
+    /**
+     * convierte una Seccion DTO a una entidad Seccion
+     * @param dto DTO de Seccion
+     * @return Entidad de Seccion
+     */
     public Seccion convertirDTO(SeccionDTO dto) {
         if (dto == null) {
             return null;
@@ -81,10 +85,11 @@ public class SeccionLogica {
 
         return entidad;
     }
-/**
-     * convierte una Seccion DTO a una entidad Seccion
-     * @param dto DTO de Seccion
-     * @return Entidad de Seccion
+
+    /**
+     * Convierte una lista de DTOs de Seccion a una lista de entidades de Seccion
+     * @param dtos Lista de DTOs de Seccion
+     * @return Lista de entidades Seccion
      */
     public List<Seccion> convertirDTO(List<SeccionDTO> dtos) {
         List<Seccion> entidades = new ArrayList<Seccion>();
@@ -93,12 +98,13 @@ public class SeccionLogica {
         }
         return entidades;
     }
-    /**
-     * Convierte una lista de DTOs de Seccion a una lista de entidades de Seccion
-     * @param dtos Lista de DTOs de Seccion
-     * @return Lista de entidades Seccion
-     */
+    
 
+    /**
+     * convierte una entidad Seccion a un DTO Seccion
+     * @param entidad Entidad Seccion
+     * @return DTO Seccion
+     */
     public SeccionDTO convertirEntidad(Seccion entidad) {
         SeccionDTO dto = new SeccionDTO();
         dto.setId(entidad.getId());
@@ -109,9 +115,9 @@ public class SeccionLogica {
     }
 
     /**
-     * convierte una entidad Seccion a un DTO Seccion
-     * @param entidad Entidad Seccion
-     * @return DTO Seccion
+     * Convierte una lista de entidades Seccion a una lista de DTO de Seccion
+     * @param entidades Lista de entidades Seccion
+     * @return Lista de DTO de Seccion
      */
     public List<SeccionDTO> convertirEntidad(List<Seccion> entidades) {
         List<SeccionDTO> dtos = new ArrayList<SeccionDTO>();

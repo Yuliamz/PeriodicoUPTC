@@ -63,7 +63,6 @@ public class TagLogica {
      * actualiza la informacion de Tag
      *
      * @param dto Tag a guardar
-     * @return Tag con los cambios realizados por el proceso de guardar
      *
      */
     public void actualizar(TagDTO dto) {

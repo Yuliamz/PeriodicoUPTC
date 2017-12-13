@@ -63,7 +63,6 @@ public class ArticuloLogica {
      * actualiza la informacion de Articulo
      *
      * @param dto Articulo a guardar
-     * @return Articulo con los cambios realizados por el proceso de guardar
      *
      */
     public void actualizar(ArticuloDTO dto) {
