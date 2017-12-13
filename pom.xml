@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>uptc.sw2</groupId>
-    <artifactId>periodico</artifactId>
+    <artifactId>periodicoT</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
     <name>periodico</name>

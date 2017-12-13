@@ -81,7 +81,11 @@ public class SeccionLogica {
 
         return entidad;
     }
-
+/**
+     * convierte una Seccion DTO a una entidad Seccion
+     * @param dto DTO de Seccion
+     * @return Entidad de Seccion
+     */
     public List<Seccion> convertirDTO(List<SeccionDTO> dtos) {
         List<Seccion> entidades = new ArrayList<Seccion>();
         for (SeccionDTO dto : dtos) {
@@ -89,6 +93,11 @@ public class SeccionLogica {
         }
         return entidades;
     }
+    /**
+     * Convierte una lista de DTOs de Seccion a una lista de entidades de Seccion
+     * @param dtos Lista de DTOs de Seccion
+     * @return Lista de entidades Seccion
+     */
 
     public SeccionDTO convertirEntidad(Seccion entidad) {
         SeccionDTO dto = new SeccionDTO();
@@ -99,6 +108,11 @@ public class SeccionLogica {
         return dto;
     }
 
+    /**
+     * convierte una entidad Seccion a un DTO Seccion
+     * @param entidad Entidad Seccion
+     * @return DTO Seccion
+     */
     public List<SeccionDTO> convertirEntidad(List<Seccion> entidades) {
         List<SeccionDTO> dtos = new ArrayList<SeccionDTO>();
         for (Seccion entidad : entidades) {

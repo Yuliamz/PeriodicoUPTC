@@ -72,7 +72,11 @@ public class AdministradorLogica {
     public void actualizar(AdministradorDTO dto) {
         persistencia.actualizar(convertirDTO(dto));
     }
-
+/**
+     * Convierte un DTO de Administrador a una entidad Adminitrador
+     * @param dto DTO de administrador
+     * @return Entidad Administrador
+     */
     public Administrador convertirDTO(AdministradorDTO dto) {
         if (dto == null) {
             return null;
@@ -85,6 +89,11 @@ public class AdministradorLogica {
         return entidad;
     }
 
+    /**
+     * Convierte una lista de DTOs de Administradores a una lista de entidades de Administrador
+     * @param dtos Lista de DTOs de Administradores
+     * @return Lista de entidades Adminitrador
+     */
     public List<Administrador> convertirDTO(List<AdministradorDTO> dtos) {
         List<Administrador> entidades = new ArrayList<Administrador>();
         for (AdministradorDTO dto : dtos) {
@@ -93,6 +102,11 @@ public class AdministradorLogica {
         return entidades;
     }
 
+    /**
+     * convierte una entidad Administrador a un DTO administrador
+     * @param entidad Entidad administrador
+     * @return DTO administrador
+     */
     public AdministradorDTO convertirEntidad(Administrador entidad) {
         AdministradorDTO dto = new AdministradorDTO();
         dto.setId(entidad.getId());
@@ -102,6 +116,11 @@ public class AdministradorLogica {
         return dto;
     }
 
+    /**
+     * convierte una lista de entidades Administrador a una lista de DTO de administrador
+     * @param entidades Lista de entidades Administrador
+     * @return Lista de DTOs adminitrador
+     */
     public List<AdministradorDTO> convertirEntidad(List<Administrador> entidades) {
         List<AdministradorDTO> dtos = new ArrayList<AdministradorDTO>();
         for (Administrador entidad : entidades) {

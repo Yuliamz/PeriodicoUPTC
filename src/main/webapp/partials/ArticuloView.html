@@ -1,0 +1,10 @@
+<div id="secwrapper">
+    <section>
+            <article ng-repeat="option in lista">
+                <a href="#"><img src="{{option.imagen}}" width="200" height="200"/> </a>
+                <h1>{{option.titulo}}</h1>
+                <p>{{option.resumen}}</p>
+                <a href="#/ver" class="readmore" ng-click="crear(option)">Leer mas</a>
+            </article>		
+    </section>
+</div>

@@ -70,6 +70,11 @@ public class TagLogica {
         persistencia.actualizar(convertirDTO(dto));
     }
 
+     /**
+     * convierte una Tag DTO a una entidad Tag
+     * @param dto DTO de Tag
+     * @return Entidad de Tag
+     */
     public Tag convertirDTO(TagDTO dto) {
         if (dto == null) {
             return null;
@@ -80,7 +85,11 @@ public class TagLogica {
 
         return entidad;
     }
-
+/**
+     * Convierte una lista de DTOs de Tag a una lista de entidades de Tag
+     * @param dtos Lista de DTOs de Tag
+     * @return Lista de entidades Tag
+     */
     public List<Tag> convertirDTO(List<TagDTO> dtos) {
         List<Tag> entidades = new ArrayList<Tag>();
         for (TagDTO dto : dtos) {
@@ -88,7 +97,11 @@ public class TagLogica {
         }
         return entidades;
     }
-
+/**
+     * convierte una entidad Tag a un DTO Tag
+     * @param entidad Entidad Tag
+     * @return DTO Tag
+     */
     public TagDTO convertirEntidad(Tag entidad) {
         TagDTO dto = new TagDTO();
         dto.setId(entidad.getId());
@@ -96,7 +109,11 @@ public class TagLogica {
 
         return dto;
     }
-
+ /**
+     * convierte una lista de entidades Tag a una lista de DTO de Tag
+     * @param entidades Lista de entidades Tag
+     * @return Lista de DTOs Tag
+     */
     public List<TagDTO> convertirEntidad(List<Tag> entidades) {
         List<TagDTO> dtos = new ArrayList<TagDTO>();
         for (Tag entidad : entidades) {

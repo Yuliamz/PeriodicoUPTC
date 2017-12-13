@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="adminPeriodico">
-
 <head>
     <title>Periódico UPTC</title>
     <meta charset="UTF-8">
@@ -9,17 +8,28 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_style.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="bower_components/fastselect-0.7.3/dist/fastselect.css">
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="./js/lib/utils.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 
-<body>
+<body ng-controller="IndexCtrl">
+    
+    <header>
+        <h1><a href="#/">PrensaUPTC</a></h1>
+        <nav>
+            <ul>
+                <li ng-repeat="option in listaSeccion">
+                    <a href="#/ArticuloSeccion" id="menu{{option.nombre}}" ng-click="guardarSeccion(option)">{{option.nombre}}</a>
+                            </li>
+                <li><a href="http://localhost:8080/periodico-1.0/#/">Iniciar sesi&oacute;n</a></li>
+            </ul>
+        </nav>
+    </header> 
+    
     <div class="content">
         <div class="content-header">
-            <div id="top-menu" class="navbar navbar-default " role="navigation">
+<!--            <div id="top-menu" class="navbar navbar-default " role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header"><a class="navbar-brand" href="#/">UPTC</a>
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
@@ -27,39 +37,39 @@
                     </div>
                     <div class="collapse navbar-collapse navbar-menubuilder">
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="#/Articulo">Artículos</a>
-                            </li>
-                            <li><a href="#/Tag">Palabras Clave</a>
-                            </li>
-                            <li><a href="#/Seccion">Secciones</a>
+                            <li ng-repeat="option in ['uno','dos','tres','cuatro']">
+                                <a href="#/{{option}}" id="menu{{option}}">{{option}}</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="https://www.google.com">Salir</a>
+                            <li><a href="https://www.google.com">login</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="content-body">
             <div ng-view=""></div>
+    
         </div>
         <div class="content-footer"></div>
     </div>
+    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.1/angular-route.js"></script>
     <script src="http://www.donatosoft.com/libjs/bootstrap-datepicker.js"></script>
     <script src="http://www.donatosoft.com/libjs/bootstrap-datepicker.es.min.js"></script>
     <script src="http://www.donatosoft.com/libjs/dirpaginate.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
-    <script type="text/javascript" src="bower_components/fastselect-0.7.3/dist/fastselect.standalone.js"></script>
     <script src="./js/RouteProvider.js"></script>
-    <script src="./js/ArticuloController.js"></script>
-    <script src="./js/AdministradorController.js"></script>
-    <script src="./js/SeccionController.js"></script>
+    <script src="./js/ArticuloViewController.js"></script>
+    <script src="./js/ArticuloViewFilterController.js"></script>
     <script src="./js/TagController.js"></script>
+    <script src="./js/IndexController.js"></script>
+    <script src="./js/VerController.js"></script>
+    <script src="./js/test.js"></script>
 </body>
 
 </html>

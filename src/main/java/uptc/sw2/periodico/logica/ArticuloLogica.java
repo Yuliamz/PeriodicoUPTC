@@ -69,7 +69,11 @@ public class ArticuloLogica {
     public void actualizar(ArticuloDTO dto) {
         persistencia.actualizar(convertirDTO(dto));
     }
-
+/**
+     * convierte un Articulo DTO a una Entidad articulo
+     * @param dto DTO de Articulo
+     * @return Entidad de Articulo
+     */
     public Articulo convertirDTO(ArticuloDTO dto) {
         if (dto == null) {
             return null;
@@ -89,7 +93,11 @@ public class ArticuloLogica {
 
         return entidad;
     }
-
+/**
+     * Convierte una lista de DTOs de Articulos a una lista de entidades de Articulo
+     * @param dtos Lista de DTOs de Articulo
+     * @return Lista de entidades Articulo
+     */
     public List<Articulo> convertirDTO(List<ArticuloDTO> dtos) {
         List<Articulo> entidades = new ArrayList<Articulo>();
         for (ArticuloDTO dto : dtos) {
@@ -98,6 +106,11 @@ public class ArticuloLogica {
         return entidades;
     }
 
+    /**
+     * convierte una entidad Articulo a un DTO Articulo
+     * @param entidad Entidad Articulo
+     * @return DTO Articulo
+     */
     public ArticuloDTO convertirEntidad(Articulo entidad) {
         ArticuloDTO dto = new ArticuloDTO();
         dto.setId(entidad.getId());
@@ -115,7 +128,11 @@ public class ArticuloLogica {
 
         return dto;
     }
-
+ /**
+     * convierte una lista de entidades Articulo a una lista de DTO de Articulo
+     * @param entidades Lista de entidades Articulo
+     * @return Lista de DTOs Articulo
+     */
     public List<ArticuloDTO> convertirEntidad(List<Articulo> entidades) {
         List<ArticuloDTO> dtos = new ArrayList<ArticuloDTO>();
         for (Articulo entidad : entidades) {
